@@ -15,15 +15,21 @@ public class Book {
     private String author;
     private Boolean availability;
 
+    /* Associação Muitos para um com Categoria. O livro tem uma categoria */
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Book() {
 
     }
 
-    public Book(Long id, String title, String author, Boolean availability) {
+    public Book(Long id, String title, String author, Boolean availability, Category category) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.availability = availability;
+        this.category = category;
     }
 
     public Long getId() {
@@ -56,6 +62,14 @@ public class Book {
 
     public void setAvailability(Boolean availability) {
         this.availability = availability;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @Override

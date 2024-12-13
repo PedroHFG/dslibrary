@@ -2,6 +2,8 @@ package com.example.dslibrary.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,6 +14,10 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    /* Associação um para muitos com Livro. Uma categoria tem vários livros */
+    @OneToMany(mappedBy = "category")
+    private List<Book> books = new ArrayList<>();
 
     public Category() {
 
@@ -36,6 +42,10 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Book> getBooks() {
+        return books;
     }
 
     @Override
