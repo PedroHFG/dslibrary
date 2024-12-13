@@ -2,7 +2,10 @@ package com.example.dslibrary.entities;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_user")
@@ -15,6 +18,9 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
+
+    @OneToMany(mappedBy = "id.user")
+    private Set<UserBook> items = new HashSet<>();
 
     public User() {
 
@@ -57,6 +63,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Set<UserBook> getItems() {
+        return items;
+    }
+
+    public List<Book> getBooks() {
+        return items.stream().map(x -> x.getBook()).toList();
     }
 
     @Override
