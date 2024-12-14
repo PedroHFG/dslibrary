@@ -22,6 +22,13 @@ public class User {
     @OneToMany(mappedBy = "id.user")
     private Set<UserBook> items = new HashSet<>();
 
+    /* Mapeamento muitos para muitos com a tabela tb_role */
+    @ManyToMany
+    @JoinTable(name = "tb_user_role",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
+
     public User() {
 
     }
@@ -71,6 +78,24 @@ public class User {
 
     public List<Book> getBooks() {
         return items.stream().map(x -> x.getBook()).toList();
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
+    public boolean hasRole(String roleName) {
+        for (Role role : roles) {
+            if(role.getAuthority().equals(roleName)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override

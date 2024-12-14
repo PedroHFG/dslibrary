@@ -31,3 +31,12 @@ INSERT INTO tb_user_book (user_id, book_id, loan_date, return_date) VALUES (4, 5
 -- Inserir Roles
 INSERT INTO tb_role (id, authority) VALUES (1, 'ROLE_ADMIN');
 INSERT INTO tb_role (id, authority) VALUES (2, 'ROLE_USER');
+
+-- Inserir Associação Usuário-Role
+INSERT INTO tb_user_role (user_id, role_id) VALUES (1, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 1);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (2, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (3, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (4, 2);
+INSERT INTO tb_user_role (user_id, role_id) VALUES (5, 2);
+
