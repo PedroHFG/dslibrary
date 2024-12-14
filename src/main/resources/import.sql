@@ -17,11 +17,11 @@ INSERT INTO tb_book (id, title, author, availability, category_id) VALUES (7, 'T
 INSERT INTO tb_book (id, title, author, availability, category_id) VALUES (8, 'A People’s History of the United States', 'Howard Zinn', true, 5);
 
 -- Inserir Usuários
-INSERT INTO tb_user (id, name, email, password) VALUES (1, 'John Doe', 'john@example.com', '123456');
-INSERT INTO tb_user (id, name, email, password) VALUES (2, 'Jane Smith', 'jane@example.com', 'password');
-INSERT INTO tb_user (id, name, email, password) VALUES (3, 'Alice Brown', 'alice@example.com', 'alice123');
-INSERT INTO tb_user (id, name, email, password) VALUES (4, 'Bob Johnson', 'bob@example.com', 'bob456');
-INSERT INTO tb_user (id, name, email, password) VALUES (5, 'Charlie Davis', 'charlie@example.com', 'charlie789');
+INSERT INTO tb_user (id, name, email, password) VALUES (1, 'John Doe', 'john@example.com', '$2a$10$IzmtdcyaMHR5QpJ035RIZOaO.9YFCHJburwIxLd0tR.uzRUTt2rXK');
+INSERT INTO tb_user (id, name, email, password) VALUES (2, 'Jane Smith', 'jane@example.com', '$2a$10$IzmtdcyaMHR5QpJ035RIZOaO.9YFCHJburwIxLd0tR.uzRUTt2rXK');
+INSERT INTO tb_user (id, name, email, password) VALUES (3, 'Alice Brown', 'alice@example.com', '$2a$10$IzmtdcyaMHR5QpJ035RIZOaO.9YFCHJburwIxLd0tR.uzRUTt2rXK');
+INSERT INTO tb_user (id, name, email, password) VALUES (4, 'Bob Johnson', 'bob@example.com', '$2a$10$IzmtdcyaMHR5QpJ035RIZOaO.9YFCHJburwIxLd0tR.uzRUTt2rXK');
+INSERT INTO tb_user (id, name, email, password) VALUES (5, 'Charlie Davis', 'charlie@example.com', '$2a$10$IzmtdcyaMHR5QpJ035RIZOaO.9YFCHJburwIxLd0tR.uzRUTt2rXK');
 
 -- Inserir Associação Usuário-Livro
 INSERT INTO tb_user_book (user_id, book_id, loan_date, return_date) VALUES (1, 1, '2024-12-01', NULL);
